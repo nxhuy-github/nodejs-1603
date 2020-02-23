@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin</title>
+        <style>
+            table, td, tr{
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <tr>
+                <td>STT</td>
+                <td>Title</td>
+                <td>Desc</td>
+                <td>idVideo</td>
+                <td>HinhAnh</td>
+                <td>QuanTri</td>
+            </tr>
+            <%arrTin.forEach((e, i) => {%>
+                <%- include('partials/row_admin', {tin: e, index: i}) %>
+            <%})%>
+        </table>    
+        <form action="/add" method="post">
+            <label>Title</label><br>
+            <input type="text" name="title">
+            <br>
+            <label>Desc</label><br>
+            <input type="text" name="desc">
+            <br>
+            <label>idVideo</label><br>
+            <input type="text" name="idVideo">
+            <br>
+            <label>image</label><br>
+            <input type="text" name="image">
+            <br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </body>
+</html>

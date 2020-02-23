@@ -1,0 +1,29 @@
+<%
+    const a = 100;
+    function add(soa, sob){
+        return soa + sob;
+    }
+
+    const b = `<h1>React Native</h1>`;
+%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Khoa Pham</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <h3>Khoa Pham NodeJs</h3>
+        <hr />
+        <div>
+            <div>
+                <%mang.forEach(e=>{%>
+                    <%- e.name %>
+                    <%- include('partials/row', {id: e.id}) %>
+                <%})%>
+            </div>
+        </div>
+    </body>
+</html>

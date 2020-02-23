@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Khoa Pham</title>
+        <base href="../" target="">
+        <style>
+            hr {
+                visibility: hidden;
+            }
+            .div-control {
+                display: flex;
+                width: 300px;
+                justify-content: space-between;
+            }
+        </style>
+        <script src="jquery.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('#a-like').click((e) => {
+                    e.preventDefault();
+                    $.get('/likes/<%= hg.id %>', data => {
+                        $('#a-like').text(`${data} like`);
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div>
+            <h3><%= hg.name %></h3>
+            <div class="div-control">
+                <a href="/show/<%= hg.id - 1%>">Back</a> 
+                <a href="/show/<%= hg.id + 1%>">Next</a>
+            </div>
+            <hr />
+            <img src="<%= hg.image %>" width="300" height="400">
+            <hr / >
+            <div class="div-control">
+                <a id="a-like" href="/like/<%= hg.id %>"><%= hg.like %> Like</a>
+                <a href="#"><%= hg.dislike %> Dislike</a>
+            </div>
+            <button id="btnAjax">AJAX</button>
+        </div>
+    </body>
+</html>
